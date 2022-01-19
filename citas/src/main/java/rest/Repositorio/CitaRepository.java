@@ -1,7 +1,7 @@
-package lopezalvarez.citas.Repositorio;
+package rest.Repositorio;
 
 import org.springframework.data.repository.CrudRepository;
-import lopezalvarez.citas.Modelo.Cita;
+import rest.Modelo.Cita;
 
 import java.util.List;
 

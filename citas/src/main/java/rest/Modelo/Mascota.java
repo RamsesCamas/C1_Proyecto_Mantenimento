@@ -1,4 +1,4 @@
-package lopezalvarez.citas.Modelo;
+package rest.Modelo;
 import javax.persistence.*;
 
 @Entity

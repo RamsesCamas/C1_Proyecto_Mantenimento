@@ -1,0 +1,14 @@
+[
+  {
+    "idCita": 1,
+    "fecha": "2020-01-01",
+    "hora": "",
+    "tipoServicio": "Vacuna"
+  },
+  {
+    "idCita": 2,
+    "fecha": "2020-01-30",
+    "hora": "",
+    "tipoServicio": "Vacuna"
+  }
+]

@@ -1,0 +1,31 @@
+GET http://localhost:9999/listCita
+
+<> 2022-01-19T125517.200.json
+
+###
+
+POST http://localhost:9999/cita/add
+Content-Type: application/json
+
+{
+  "fecha": "2020-01-30",
+  "hora": "",
+  "tipoServicio": "Vacuna"
+}
+
+<> 2022-01-19T125507.200.json
+
+###
+
+GET http://localhost:9999/listCita
+
+<> 2022-01-19T125302.200.json
+
+###
+
+GET http://localhost:9999/listCita
+
+<> 2022-01-19T125052.200.json
+
+###
+

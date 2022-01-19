@@ -1,4 +1,4 @@
-package lopezalvarez.citas.Modelo;
+package rest.Modelo;
 
 public class CitaMascota extends Cita{
     private Mascota mascota;

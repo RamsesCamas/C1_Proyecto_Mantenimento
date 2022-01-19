@@ -1,11 +1,11 @@
-package lopezalvarez.citas.Controlador;
+package rest.Controlador;
 
-import lopezalvarez.citas.Modelo.CitaMascota;
-import lopezalvarez.citas.Modelo.Mascota;
+import rest.Modelo.CitaMascota;
+import rest.Modelo.Mascota;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import lopezalvarez.citas.Modelo.Cita;
-import lopezalvarez.citas.Repositorio.CitaRepository;
+import rest.Modelo.Cita;
+import rest.Repositorio.CitaRepository;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
