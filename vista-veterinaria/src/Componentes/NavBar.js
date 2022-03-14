@@ -18,6 +18,9 @@ export default function NavBar() {
                     <NavLink exact activeClassName="active" to="/duenios" className="btn btns"> Dueños </NavLink>
                     <NavLink exact activeClassName="active" to="/mascotas" className="btn btns"> Mascotas</NavLink>
                     <NavLink exact activeClassName="active" to="/medicamentos" className="btn btns">Medicamentos</NavLink>
+                    <NavLink exact activeClassName="active" to="/auth/login" className="btn btns"> Ingresar </NavLink>
+                    <NavLink exact activeClassName="active" to="/registro" className="btn btns">Registro</NavLink>
+                    <NavLink exact activeClassName="active" to="/auth/me" className="btn btns"> Perfil </NavLink>
                 </div>
             </div>
         </nav>

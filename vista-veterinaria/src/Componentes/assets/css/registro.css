@@ -1,0 +1,18 @@
+.main{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.formRegistro{
+    width: 40%;
+}
+
+.divform{
+    margin: 20px;
+}
+
+h2{
+    text-align: center;
+}
