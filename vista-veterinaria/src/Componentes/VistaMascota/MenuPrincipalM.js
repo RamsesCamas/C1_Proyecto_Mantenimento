@@ -7,18 +7,23 @@ import DeleteM from './DeleteM';
 import AddMascota from './AddMascota';
 import ActualizarM from './ActualizarM';
 import BuscarM from './BuscarM';
+
 export default function MenuPrincipalM() {
+    const id = localStorage.getItem('id');
     const [mascotas, setMascotas] = useState(null);
     const [mascota,setMascota] = useState(null);
     const [estado,setEstado] = useState(1);
+
     useEffect(()=>{
-        obtenerMascotas();
+        obtenerMascotas(id);
     },[])
-    const obtenerMascotas = async () => {
-        const dato = await fetch('http://localhost:9998/listMascotas');
-        const mascotaA = await dato.json();
+
+    async function obtenerMascotas(idDuenio) {
+        const mascotas = await fetch(`http://localhost:9998/listByIdDuenio/${idDuenio}`);
+        const mascotaA = await mascotas.json();
         setMascotas(mascotaA);
     }
+
     return (
         <div className="tabla">
             {mascotas!==null && <TablaMascota mascotas ={mascotas} onMascotaChange={setMascota} onChangeEstado={setEstado} estado={estado}/>}

@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from'axios';
+
 export default function DeleteM(props) {
+    const id = localStorage.getItem('id');
     const [post, setPost] = useState(false)
     // const dato = {idMascota:0,nombre:'',tipo:'',idDuenio:0,idCita:0,idMedicamento:0, razon:''}
     // var url='';
@@ -17,7 +19,7 @@ export default function DeleteM(props) {
     }
 
     const hundleClick = () =>{
-        axios.get('http://localhost:9998/listMascotas').then(response=>{
+        axios.get(`http://localhost:9998/listByIdDuenio/${id}`).then(response=>{
             props.onMascotasChange(response.data);
         }).catch(console.log('No se pudo actualizar'));
     }

@@ -10,13 +10,13 @@ public class DuenioMascota extends Duenio{
         this.mascotas = mascotas;
     }
 
-    public DuenioMascota(int id, String nombre, String telefono, String direccion, Mascota[] mascotas) {
-        super(id, nombre, telefono, direccion);
+    public DuenioMascota(int id, String nombre, String telefono, String direccion, String email, Mascota[] mascotas) {
+        super(id, nombre, telefono, direccion,email);
         this.mascotas = mascotas;
     }
 
-    public DuenioMascota(int id, String nombre, String telefono, String direccion) {
-        super(id, nombre, telefono, direccion);
+    public DuenioMascota(int id, String nombre, String telefono, String direccion, String email) {
+        super(id, nombre, telefono, direccion,email);
     }
 
     public Mascota[] getMascotas() {

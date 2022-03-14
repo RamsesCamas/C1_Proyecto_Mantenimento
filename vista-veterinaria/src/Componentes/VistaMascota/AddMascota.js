@@ -1,14 +1,16 @@
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
+
 export default function AddMascota(props) {
     const [nombre, setNombre] = useState('');
     const [tipo, setTipo] = useState('');
     const [idDuenio, setIdDuenio] = useState(0);
     const [idCita, setIdCita] = useState(0);
-    const [idMedicamento, setIdMedicamento] = useState(0);
+    const [idMedicamento, setIdMedicamento] = useState(1);
     const [fechaIngreso, setFechaIngreso] = useState('');
     const [razon, setRazon] = useState('');
+    const id = localStorage.getItem('id');
     
     const peticionPost = (dato,url)=>{
         axios.post(url,dato).then(response=>{
@@ -22,7 +24,7 @@ export default function AddMascota(props) {
     }
     const hundleClick = () =>{
         alert('Se agregará el dato')
-        axios.get('http://localhost:9998/listMascotas').then(response=>{
+        axios.get(`http://localhost:9998/listByIdDuenio/${id}`).then(response=>{
             props.onMascotasChange(response.data);
         }).catch(console.log('No se pudo actualizar'));
     }
@@ -36,7 +38,6 @@ export default function AddMascota(props) {
                         <input className='input-group-text texto' type="text" name="tipo" id="tipoM" placeholder='Tipo' onChange={e=>setTipo(e.target.value)}/>
                         <input className='input-group-text texto' type="number" name="idDuenio" id="idDuenioM" placeholder='IdDuenio' onChange={e=>setIdDuenio(parseInt(e.target.value))}/>
                         <input className='input-group-text texto' type="number" name="idCita" id="idCitaM" placeholder='IdCita' onChange={e=>setIdCita(parseInt(e.target.value))}/>
-                        <input className='input-group-text texto' type="number" name="idMedicamento" id="idMedicamentoM" placeholder='IdMedicamento' onChange={e=>setIdMedicamento(parseInt(e.target.value))}/>
                         <input className='input-group-text texto' type="text" name="fechaIngreso" id="fechaIngresoM" placeholder='Fecha de ingreso' onChange={e=>setFechaIngreso(e.target.value)}/>
                         <input className='input-group-text texto' type="text" name="razon" id="razonM" placeholder='Razon' onChange={e=>setRazon(e.target.value)}/>
                         <button className='btn btn-dark' onClick={()=>{
@@ -54,7 +55,6 @@ export default function AddMascota(props) {
                                 document.getElementById('tipoM').value='';
                                 document.getElementById('idDuenioM').value='';
                                 document.getElementById('idCitaM').value=''
-                                document.getElementById('idMedicamentoM').value='';
                                 document.getElementById('fechaIngresoM').value='';
                                 document.getElementById('razonM').value='';
                             }

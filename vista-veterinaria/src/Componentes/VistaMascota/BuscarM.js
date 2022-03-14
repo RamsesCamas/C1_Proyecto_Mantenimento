@@ -1,22 +1,27 @@
 import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+
 const BuscarM = (props) => {
+    const id = localStorage.getItem('id');
     const [tipo, setTipo] = useState('');
     const peticionPost = (dato,url)=>{
         axios.post(url,dato).then(response=>{
             props.onMascotasChange(response.data);
         })
     }
+
     const handleClick= ()=>{
         const dato = {nombre:'',tipo:tipo,idDuenio:'',idCita:0,idMedicamento:0,fechaIngreso:'',razon:''};
         peticionPost(dato,'http://localhost:9998/mascota/tipo');
     }
+
     const hundleClick = () =>{
-        axios.get('http://localhost:9998/listMascotas').then(response=>{
+        axios.get(`http://localhost:9998/listByIdDuenio/${id}`).then(response=>{
             props.onMascotasChange(response.data);
         }).catch(console.log('No se pudo actualizar'));
     }
+
     return (
         <div className='aniadir busc margen'>
             <h2>Buscar tipo de mascota</h2>
@@ -33,7 +38,7 @@ const BuscarM = (props) => {
                     <button className='btn btn-dark botn2' onClick={()=>{
                         hundleClick();
                     }}>Limpiar</button>
-        </div>
+                </div>
     )
 }
 

@@ -29,7 +29,7 @@ public class DuenioController {
         Duenio duenio =  duenioRepository.findByIdDuenio(idDuenio);
         DuenioMascota duenioMascota= null;
         if (duenio != null){
-            duenioMascota = new DuenioMascota(duenio.getIdDuenio(), duenio.getNombre(), duenio.getTelefono(), duenio.getDireccion());
+            duenioMascota = new DuenioMascota(duenio.getIdDuenio(), duenio.getNombre(), duenio.getTelefono(), duenio.getDireccion(),duenio.getEmail());
             Mascota[] mascotas  =restTemplate.getForObject("http://localhost:9998/listByIdDuenio/"+duenioMascota.getIdDuenio(), Mascota[].class);
             duenioMascota.setMascotas(mascotas);
         }
@@ -67,5 +67,10 @@ public class DuenioController {
             return true;
         }
         return null;
+    }
+
+    @GetMapping(value = "/duenio/email")
+    public Duenio getDuenioByEmail(@RequestBody Duenio duenio){
+        return duenioRepository.findDuenioByEmail(duenio.getEmail());
     }
 }
